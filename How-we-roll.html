@@ -19,6 +19,16 @@
             <label for="bird">Night Owl</label>
         </section>
         <section>
+            <label for="cora">Work on it together</label>
+            <input type="range" name="cora" id="inpCora" min="0" max="100" step="1" value="50">
+            <label for="cora">Go off alone and think</label>
+        </section>
+        <section>
+            <label for="talk">Tell me the backstory</label>
+            <input type="range" name="talk" id="inpTalk" min="0" max="100" step="1" value="50">
+            <label for="talk">Cut to the chase</label>
+        </section>
+        <section>
             <label for="time">09-17 Hours</label>
             <input type="range" name="time" id="inpTime" min="0" max="100" step="1" value="50">
             <label for="time">I have no set schedule</label>
@@ -28,6 +38,8 @@
 
     <script>
         const inpBird = document.querySelector('#inpBird');
+        const inpCora = document.querySelector('#inpCora');
+        const inpTalk = document.querySelector('#inpTalk');
         const inpTime = document.querySelector('#inpTime');
 
         
