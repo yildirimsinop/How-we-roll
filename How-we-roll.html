@@ -10,39 +10,85 @@
 <body>
     <h4>How we roll - How-we-roll</h4>
     <a href="./Index.html">Index</a>
+    <a href="./How-we-roll-Results.html">Results</a>
 
     <div id="spmlDiv">
-        <h4>Spørsmål:</h4>
-        <section>
-            <label for="bird">Early Bird</label>
-            <input type="range" name="bird" id="inpBird" min="0" max="100" step="1" value="50">
-            <label for="bird">Night Owl</label>
-        </section>
-        <section>
-            <label for="cora">Work on it together</label>
-            <input type="range" name="cora" id="inpCora" min="0" max="100" step="1" value="50">
-            <label for="cora">Go off alone and think</label>
-        </section>
-        <section>
-            <label for="talk">Tell me the backstory</label>
-            <input type="range" name="talk" id="inpTalk" min="0" max="100" step="1" value="50">
-            <label for="talk">Cut to the chase</label>
-        </section>
-        <section>
-            <label for="time">09-17 Hours</label>
-            <input type="range" name="time" id="inpTime" min="0" max="100" step="1" value="50">
-            <label for="time">I have no set schedule</label>
-        </section>
+        <form>
+            <h4>Spørsmål:</h4>
+            <section>
+                <label for="bird">Early Bird</label>
+                <input type="range" name="bird" id="inpBird" min="0" max="100" step="1" value="50">
+                <label for="bird">Night Owl</label>
+            </section>
+            <section>
+                <label for="cora">Work on it together</label>
+                <input type="range" name="cora" id="inpCora" min="0" max="100" step="1" value="50">
+                <label for="cora">Go off alone and think</label>
+            </section>
+            <section>
+                <label for="talk">Tell me the backstory</label>
+                <input type="range" name="talk" id="inpTalk" min="0" max="100" step="1" value="50">
+                <label for="talk">Cut to the chase</label>
+            </section>
+            <section>
+                <label for="time">09-17 Hours</label>
+                <input type="range" name="time" id="inpTime" min="0" max="100" step="1" value="50">
+                <label for="time">I have no set schedule</label>
+            </section>
+            <button type="submit">Lagre</button>
+        </form>
+    </div>
+    <div>
+        <div class="results">
+            <h2>Form data:</h2>
+            <pre></pre>
+        </div>
     </div>
 
 
     <script>
+        // ------------------------------------------- Referanser til HTML -------------------------------------------
         const inpBird = document.querySelector('#inpBird');
         const inpCora = document.querySelector('#inpCora');
         const inpTalk = document.querySelector('#inpTalk');
         const inpTime = document.querySelector('#inpTime');
+        const results = document.querySelector('.results');
 
-        
+
+        // -------------------------- Fuksjon som henter og sender dataen fra input-feltene --------------------------
+        // Fra Developer Mozilla (mdn), link på agenda i canvas:
+        // Example POST method implementation:
+        async function postData(url = '', data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+        }
+
+        // Egne funksjoner:
+        function handleSubmit(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            const formJSON = Object.fromEntries(data.entries());
+            const results = document.querySelector('.results pre');
+            postData('https://bacit.info/', formJSON)
+            .then(data => {
+                results.innerText = JSON.stringify(data, null, 2);
+            })
+        }
+        const form = document.querySelector('form');
+        form.addEventListener('submit', handleSubmit);
     </script>
 </body>
 </html>
