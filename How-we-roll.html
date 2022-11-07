@@ -22,19 +22,29 @@
                 <label for="bird">Night Owl</label>
             </section>
             <section>
-                <label for="cora">Work on it together</label>
+                <label for="cora">Work together</label>
                 <input type="range" name="cora" id="inpCora" min="0" max="100" step="1" value="50">
-                <label for="cora">Go off alone and think</label>
+                <label for="cora">Work alone</label>
             </section>
             <section>
-                <label for="talk">Tell me the backstory</label>
+                <label for="talk">Zoom meeting</label>
                 <input type="range" name="talk" id="inpTalk" min="0" max="100" step="1" value="50">
-                <label for="talk">Cut to the chase</label>
+                <label for="talk">Physical meeting</label>
+            </section>
+            <section>
+                <label for="intExt">Introvert</label>
+                <input type="range" name="intExt" id="inpIntExt" min="0" max="100" step="1" value="50">
+                <label for="intExt">Extrovert</label>
             </section>
             <section>
                 <label for="time">09-17 Hours</label>
                 <input type="range" name="time" id="inpTime" min="0" max="100" step="1" value="50">
                 <label for="time">I have no set schedule</label>
+            </section>
+            <section>
+                <label for="text">Physical/digital meeting</label>
+                <input type="range" name="text" id="inpText" min="0" max="100" step="1" value="50">
+                <label for="text">E-mail/texting</label>
             </section>
             <button type="submit">Lagre</button>
         </form>
@@ -52,7 +62,9 @@
         const inpBird = document.querySelector('#inpBird');
         const inpCora = document.querySelector('#inpCora');
         const inpTalk = document.querySelector('#inpTalk');
+        const inpIntExt = document.querySelector('#inpIntExt');
         const inpTime = document.querySelector('#inpTime');
+        const inpText = document.querySelector('#inpText');
         const results = document.querySelector('.results');
 
 
