@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HWR</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h4>How we roll - How-we-roll</h4>
-    <a href="./Index.html">Index</a>
-    <a href="./How-we-roll-Results.html">Results</a>
+    <div class="nav">
+        <h4>How we roll - How-we-roll</h4>
+        <div class="navA">
+            <a href="./Index.html">Index</a>
+            <a href="./How-we-roll.html">How-we-roll</a>
+            <a href="./How-we-roll-Results.html">Results</a>
+        </div>
+    </div>
 
     <div id="spmlDiv">
         <form>
@@ -21,19 +26,29 @@
                 <label for="bird">Night Owl</label>
             </section>
             <section>
-                <label for="cora">Work on it together</label>
+                <label for="cora">Work together</label>
                 <input type="range" name="cora" id="inpCora" min="0" max="100" step="1" value="50">
-                <label for="cora">Go off alone and think</label>
+                <label for="cora">Work alone</label>
             </section>
             <section>
-                <label for="talk">Tell me the backstory</label>
+                <label for="talk">Zoom meeting</label>
                 <input type="range" name="talk" id="inpTalk" min="0" max="100" step="1" value="50">
-                <label for="talk">Cut to the chase</label>
+                <label for="talk">Physical meeting</label>
             </section>
             <section>
-                <label for="time">09-17 Hours</label>
-                <input type="range" name="time" id="inpTime" min="0" max="100" step="1" value="50">
-                <label for="time">I have no set schedule</label>
+                <label for="intExt">Introvert</label>
+                <input type="range" name="intExt" id="inpIntExt" min="0" max="100" step="1" value="50">
+                <label for="intExt">Extrovert</label>
+            </section>
+            <section>
+                <label for="tid">09-17 Hours</label>
+                <input type="range" name="tid" id="inpTid" min="0" max="100" step="1" value="50">
+                <label for="tid">I have no set schedule</label>
+            </section>
+            <section>
+                <label for="text">Physical/digital meeting</label>
+                <input type="range" name="text" id="inpText" min="0" max="100" step="1" value="50">
+                <label for="text">E-mail/texting</label>
             </section>
             <button type="submit">Lagre</button>
         </form>
@@ -51,7 +66,9 @@
         const inpBird = document.querySelector('#inpBird');
         const inpCora = document.querySelector('#inpCora');
         const inpTalk = document.querySelector('#inpTalk');
-        const inpTime = document.querySelector('#inpTime');
+        const inpIntExt = document.querySelector('#inpIntExt');
+        const inpTid = document.querySelector('#inpTid');
+        const inpText = document.querySelector('#inpText');
         const results = document.querySelector('.results');
 
 

@@ -1,3 +1,26 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+/* ------------------------------ Nav ------------------------------ */
+.nav{
+    background-color: lightgray;
+}
+.nav h4{
+    margin-top: 0;
+    padding-top: 10px;
+    text-align: center;
+}
+.navA{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-bottom: 25px;
+    width: 70%;
+    margin: auto;
+}
+
+/* --------------------------------- Innhold --------------------------------- */
 #spmlDiv{
     margin: auto;
     width: 70%;
@@ -13,6 +36,11 @@
     border-bottom: solid 1px lightgray;
     margin-top: 50px;
     padding-bottom: 30px;
+}
+.results{
+    width: 70%;
+    margin: auto;
+    padding-bottom: 50px;
 }
 .results pre{
     font-family: "Comic Sans MS", "Comic Sans"; /* Veldig nødvendig */
