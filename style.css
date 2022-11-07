@@ -1,0 +1,19 @@
+#spmlDiv{
+    margin: auto;
+    width: 70%;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+    margin-top: 50px;
+    padding-bottom: 30px;
+}
+#innhold{
+    margin: auto;
+    width: 70%;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+    margin-top: 50px;
+    padding-bottom: 30px;
+}
+.results pre{
+    font-family: "Comic Sans MS", "Comic Sans"; /* Veldig nødvendig */
+}
