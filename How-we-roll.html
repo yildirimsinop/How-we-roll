@@ -1,10 +1,111 @@
-{
-    "bird": "95",
-    "cora": "32",
-    "talk": "8",
-    "intExt": "62",
-    "tid": "74",
-    "text": "73",
-    "trxid": "375b7f0c31eac4d0365cbf7e2d13487a",
-    "time": "20221107160501"
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HWR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav">
+        <h4>How we roll - How-we-roll</h4>
+        <div class="navA">
+            <a href="./Index.html">Index</a>
+            <a href="./How-we-roll.html">How-we-roll</a>
+            <a href="./How-we-roll-Results.html">Results</a>
+        </div>
+    </div>
+
+    <div id="spmlDiv">
+        <form>
+            <h4>Spørsmål:</h4>
+            <section>
+                <label for="bird">Early Bird</label>
+                <input type="range" name="bird" id="inpBird" min="0" max="100" step="1" value="50">
+                <label for="bird">Night Owl</label>
+            </section>
+            <section>
+                <label for="cora">Work together</label>
+                <input type="range" name="cora" id="inpCora" min="0" max="100" step="1" value="50">
+                <label for="cora">Work alone</label>
+            </section>
+            <section>
+                <label for="talk">Zoom meeting</label>
+                <input type="range" name="talk" id="inpTalk" min="0" max="100" step="1" value="50">
+                <label for="talk">Physical meeting</label>
+            </section>
+            <section>
+                <label for="intExt">Introvert</label>
+                <input type="range" name="intExt" id="inpIntExt" min="0" max="100" step="1" value="50">
+                <label for="intExt">Extrovert</label>
+            </section>
+            <section>
+                <label for="tid">09-17 Hours</label>
+                <input type="range" name="tid" id="inpTid" min="0" max="100" step="1" value="50">
+                <label for="tid">I have no set schedule</label>
+            </section>
+            <section>
+                <label for="text">Physical/digital meeting</label>
+                <input type="range" name="text" id="inpText" min="0" max="100" step="1" value="50">
+                <label for="text">E-mail/texting</label>
+            </section>
+            <button type="submit">Lagre</button>
+        </form>
+    </div>
+    <div> 
+        <div class="results">
+            <h2>Form data:</h2>
+            <pre></pre>
+        </div>
+    </div>
+
+
+    <script>
+        // ------------------------------------------- Referanser til HTML -------------------------------------------
+        const inpBird = document.querySelector('#inpBird');
+        const inpCora = document.querySelector('#inpCora');
+        const inpTalk = document.querySelector('#inpTalk');
+        const inpIntExt = document.querySelector('#inpIntExt');
+        const inpTid = document.querySelector('#inpTid');
+        const inpText = document.querySelector('#inpText');
+        const results = document.querySelector('.results');
+
+
+        // -------------------------- Fuksjon som henter og sender dataen fra input-feltene --------------------------
+        // Fra Developer Mozilla (mdn), link på agenda i canvas:
+        // Example POST method implementation:
+        async function postData(url = '', data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+        }
+
+        // Egne funksjoner, skrevet av fra Janis:
+        function handleSubmit(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            const formJSON = Object.fromEntries(data.entries());
+            const results = document.querySelector('.results pre');
+            postData('https://bacit.info/', formJSON)
+            .then(data => {
+                results.innerText = JSON.stringify(data, null, 2);
+            })
+        }
+        const form = document.querySelector('form');
+        form.addEventListener('submit', handleSubmit);
+    </script>
+</body>
+</html>
