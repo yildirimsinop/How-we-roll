@@ -7,6 +7,7 @@
     <title>Results</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Lager boksen rundt brukerne, samt fargede understreker */
         #brukere{
             margin-top: 30px;
             border: solid 1px gray;
@@ -14,6 +15,8 @@
             width: 30%;
             text-align: center;
             min-width: 250px;
+            height: 310px;
+            margin-top: 120px;
         }
         #red{
             border-bottom: solid 5px #DB261D;
@@ -25,7 +28,7 @@
             border-bottom: solid 5px #7851A9;
         }
         #green{
-            border-bottom: solid 5px green;
+            border-bottom: solid 5px #008000;
         }
         #yellow{
             border-bottom: solid 5px #FFE800;
@@ -34,17 +37,20 @@
             border-bottom: solid 5px #FFA500;
         }
 
-        
+        /* Boksen rundt brukerboksen og canvas-elementet */
         #innhold2{
             display: flex;
             flex-direction: row;
-            gap: 20px;
+            justify-content: center;
+            gap: 30px;
             margin: auto;
             width: 90%;
             border-top: solid 1px lightgray;
             border-bottom: solid 1px lightgray;
             margin-top: 50px;
+            padding-top: 30px;
             padding-bottom: 30px;
+            margin-bottom: 80px;
         }
         h1{
             text-align: center;
@@ -53,6 +59,7 @@
     </style>
 </head>
 <body>
+    <!-- Navigasjonsbar -->
     <div class="nav">
         <h4>How we roll - Results</h4>
         <div class="navA">
@@ -63,6 +70,7 @@
     </div>
     <h1>Results</h1>
 
+    <!-- Div med alle brukerne -->
     <div id="innhold2">
         <div id="brukere">
             <p id="red">Eric Alexander Bettmo</p>
@@ -73,7 +81,8 @@
             <p id="orange">Vinh Vu Ai Nguyen</p>
         </div>
 
-        <canvas id="formsResults" height="300" width="610"></canvas>
+        <!-- Canvas hvor resultatet blir tegnet opp med JS -->
+        <canvas id="formsResults" height="550" width="630"></canvas>
     </div>
 
     <script>
@@ -82,491 +91,551 @@
         let canvas = document.getElementById('formsResults');
         let ctx = canvas.getContext('2d');
 
-        // tegner teksten:
+        // Tegner opp teksten:
+        // venstre side:
         ctx.font = '14px serif';
         ctx.fillText('Early Bird', 105, 25)
         ctx.fillText('Work together', 83, 75)
-        ctx.fillText('Zoom meeting', 80, 125)
-        ctx.fillText('Introvert', 112, 175)
-        ctx.fillText('09-17 Hours', 90, 225)
-        ctx.fillText('Physical/digital meeting', 25, 275)
+        ctx.fillText('Tell me the backstory', 42, 125)
+        ctx.fillText('Need to talk it out', 55, 175)
+        ctx.fillText('Verbal processor', 69, 225)
+        ctx.fillText('Schedule a time to chat', 32, 275)
+        ctx.fillText('Zoom meeting', 80, 325)
+        ctx.fillText('Introvert', 112, 375)
+        ctx.fillText('09-17 Hours', 90, 425)
+        ctx.fillText('Physical/digital meeting', 25, 475)
+        ctx.fillText('Do everything at once', 38, 525)
         
+        // høyre side
         ctx.fillText('Night Owl', 480, 25)
         ctx.fillText('Work alone', 480, 75)
-        ctx.fillText('Physical meeting', 480, 125)
-        ctx.fillText('Extrovert', 480, 175)
-        ctx.fillText('I have no set schedule', 480, 225)
-        ctx.fillText('E-mail/texting', 480, 275)
+        ctx.fillText('Cut to the chase', 480, 125)
+        ctx.fillText('Need to move on', 480, 175)
+        ctx.fillText('Mental processor', 480, 225)
+        ctx.fillText('Interupt me when needed', 480, 275)
+        ctx.fillText('Physical meeting', 480, 325)
+        ctx.fillText('Extrovert', 480, 375)
+        ctx.fillText('I have no set schedule', 480, 425)
+        ctx.fillText('E-mail/texting', 480, 475)
+        ctx.fillText('Spread out the work', 480, 525)
 
-        // tegner linjene mellom teksten:
-        ctx.beginPath();
+        // Tegner linjene mellom teksten:
+        ctx.beginPath(); // Linje til spørsmål 1
         ctx.moveTo(170, 20);
         ctx.lineTo(470, 20);
 
-        ctx.moveTo(170, 70);
+        ctx.moveTo(170, 70); // Linje til spørsmål 2
         ctx.lineTo(470, 70);
         ctx.stroke();
 
-        ctx.moveTo(170, 120);
+        ctx.moveTo(170, 120); // Linje til spørsmål 3
         ctx.lineTo(470, 120);
         ctx.stroke();
         
-        ctx.moveTo(170, 170);
+        ctx.moveTo(170, 170); // Linje til spørsmål 4
         ctx.lineTo(470, 170);
         ctx.stroke();
 
-        ctx.moveTo(170, 220);
+        ctx.moveTo(170, 220); // Linje til spørsmål 5
         ctx.lineTo(470, 220);
         ctx.stroke();
 
-        ctx.moveTo(170, 270);
+        ctx.moveTo(170, 270); // Linje til spørsmål 6
         ctx.lineTo(470, 270);
         ctx.stroke();
+
+        ctx.moveTo(170, 320); // Linje til spørsmål 7
+        ctx.lineTo(470, 320);
         ctx.stroke();
+
+        ctx.moveTo(170, 370); // Linje til spørsmål 8
+        ctx.lineTo(470, 370);
+        ctx.stroke();
+
+        ctx.moveTo(170, 420); // Linje til spørsmål 9
+        ctx.lineTo(470, 420);
+        ctx.stroke();
+
+        ctx.moveTo(170, 470); // Linje til spørsmål 10
+        ctx.lineTo(470, 470);
+        ctx.stroke();
+
+        ctx.moveTo(170, 520); // Linje til spørsmål 11
+        ctx.lineTo(470, 520);
+        ctx.stroke();
+        ctx.stroke(); // "Dobbel-stroker" for å få den nederste linjen til å gå fra grå til svart
+
+
+        // Definerer fargekodene til gruppemedlemmene:
+        let fEric = "#DB261D";
+        let fHerman = "#5E89B6";
+        let fTrym = "#7851A9";
+        let fUmit = "#008000";
+        let fBrage = "#FFE800";
+        let fVinh = "#FFA500";
         
 
-        // Tegner inn resultatet til Eric:
-        fetch("https://bacit.info/hwr/20221107160501-375b7f0c31eac4d0365cbf7e2d13487a.json", {cache: 'no-cache'})
+        // Tegner inn resultatet til Eric: -----------------------------------------------------------------------------
+        let ericData = "https://bacit.info/hwr/20221107160501-375b7f0c31eac4d0365cbf7e2d13487a.json";
+        fetch(ericData, {cache: 'no-cache'})
             .then(response => response.json())
             .then(data => {
-
-
-                var X = 168 + parseInt(data.bird, 30);
-                var Y = 20;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#DB261D";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-
-                var X = 172 + parseInt(data.cora, 30);
-                var Y = 70;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#DB261D";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-
-                var X = 170 + parseInt(data.talk, 30);
-                var Y = 120;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
-                ctx.fillStyle = "#DB261D";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
             
-                var X = 173 + parseInt(data.intExt, 30);
-                var Y = 170;
-                var R = 5;
+            // funksjon som tegner prikk:
+            const tegnPrikk = (X, Y,  R, fEric) => {
                 ctx.beginPath();
                 ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#DB261D";
+                ctx.fillStyle = `${fEric}`; // Henter fargen til personen
                 ctx.fill();
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = "black";
                 ctx.stroke();
+            }
+            //radius på prikken:
+            var R = 5;
 
-                var X = 170 + parseInt(data.tid, 30);
-                var Y = 220;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#DB261D";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
+            // prikk 1
+            var X = 170 + parseInt(data.bird, 30);
+            var Y = 20;
+            tegnPrikk(X, Y,  R, fEric);
+             
+            // prikk 2
+            var X = 170 + parseInt(data.cora, 30);
+            var Y = 70;
+            tegnPrikk(X, Y,  R, fEric);
+             
+            // prikk 3
+            var X = 170 + parseInt(data.story, 30);
+            var Y = 120;
+            tegnPrikk(X, Y,  R, fEric);
+             
+            // prikk 4
+            var X = 170 + parseInt(data.talking, 30);
+            var Y = 170;
+            tegnPrikk(X, Y,  R, fEric);
+             
+            // prikk 5
+            var X = 170 + parseInt(data.proc, 30);
+            var Y = 220;
+            tegnPrikk(X, Y,  R, fEric);
+             
+            // prikk 6
+            var X = 170 + parseInt(data.tic, 30);
+            var Y = 270;
+            tegnPrikk(X, Y,  R, fEric);
+             
+            // prikk 7
+            var X = 170 + parseInt(data.talk, 30);
+            var Y = 320;
+            tegnPrikk(X, Y,  R, fEric);
+             
+            // prikk 8
+            var X = 170 + parseInt(data.intExt, 30);
+            var Y = 370;
+            tegnPrikk(X, Y,  R, fEric);
+             
+            // prikk 9
+            var X = 170 + parseInt(data.tid, 30);
+            var Y = 420;
+            tegnPrikk(X, Y,  R, fEric);
+             
+            // prikk 10
+            var X = 170 + parseInt(data.text, 30);
+            var Y = 470;
+            tegnPrikk(X, Y,  R, fEric);
+             
+            // prikk 11
+            var X = 170 + parseInt(data.sit, 30);
+            var Y = 520;
+            tegnPrikk(X, Y,  R, fEric);
 
-                var X = 170 + parseInt(data.text, 30);
-                var Y = 270;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#DB261D";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-        });
-
-        // Tegner inn resultatet til Herman:
-        fetch("https://bacit.info/hwr/20221107155022-6b1f6fda0f408049e8135fb66e1c6501.json", {cache: 'no-cache'})
-            .then(response => response.json())
-            .then(data => {
-
-
-                var X = 170 + parseInt(data.bird, 30);
-                var Y = 20;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#5E89B6";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-
-                var X = 170 + parseInt(data.cora, 30);
-                var Y = 70;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#5E89B6";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-
-                var X = 170 + parseInt(data.talk, 30);
-                var Y = 120;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
-                ctx.fillStyle = "#5E89B6";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-            
-                var X = 170 + parseInt(data.intExt, 30);
-                var Y = 170;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#5E89B6";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-
-                var X = 172 + parseInt(data.tid, 30);
-                var Y = 220;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#5E89B6";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-
-                var X = 170 + parseInt(data.text, 30);
-                var Y = 270;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#5E89B6";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
         });
 
 
-        // Tegner inn resultatet til Trym:
-        fetch("https://bacit.info/hwr/20221107160142-c66961433b1f161cfe373d2b922aa057.json", {cache: 'no-cache'})
+        // Tegner inn resultatet til Herman: --------------------------------------------------------------------------
+        let hermanData = "https://bacit.info/hwr/20221111102915-fc7053921b25e2732926472d72ee7f01.json";
+        fetch(hermanData, {cache: 'no-cache'})
             .then(response => response.json())
             .then(data => {
 
-
-                var X = 170 + parseInt(data.bird, 30);
-                var Y = 20;
-                var R = 5;
+            // funksjon som tegner prikk:
+            const tegnPrikk = (X, Y,  R, fHerman) => {
                 ctx.beginPath();
                 ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#7851A9";
+                ctx.fillStyle = `${fHerman}`; // Henter fargen til personen
                 ctx.fill();
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = "black";
                 ctx.stroke();
+            }
+            //radius på prikken:
+            var R = 5;
 
-                var X = 170 + parseInt(data.cora, 30);
-                var Y = 70;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#7851A9";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
+            // prikk 1
+            var X = 170 + parseInt(data.bird, 30);
+            var Y = 20;
+            tegnPrikk(X, Y,  R, fHerman);
+             
+            // prikk 2
+            var X = 170 + parseInt(data.cora, 30);
+            var Y = 70;
+            tegnPrikk(X, Y,  R, fHerman);
+             
+            // prikk 3
+            var X = 170 + parseInt(data.story, 30);
+            var Y = 120;
+            tegnPrikk(X, Y,  R, fHerman);
+             
+            // prikk 4
+            var X = 170 + parseInt(data.talking, 30);
+            var Y = 170;
+            tegnPrikk(X, Y,  R, fHerman);
+             
+            // prikk 5
+            var X = 170 + parseInt(data.proc, 30);
+            var Y = 220;
+            tegnPrikk(X, Y,  R, fHerman);
+             
+            // prikk 6
+            var X = 170 + parseInt(data.tic, 30);
+            var Y = 270;
+            tegnPrikk(X, Y,  R, fHerman);
+             
+            // prikk 7
+            var X = 170 + parseInt(data.talk, 30);
+            var Y = 320;
+            tegnPrikk(X, Y,  R, fHerman);
+             
+            // prikk 8
+            var X = 170 + parseInt(data.intExt, 30);
+            var Y = 370;
+            tegnPrikk(X, Y,  R, fHerman);
+             
+            // prikk 9
+            var X = 170 + parseInt(data.tid, 30);
+            var Y = 420;
+            tegnPrikk(X, Y,  R, fHerman);
+             
+            // prikk 10
+            var X = 170 + parseInt(data.text, 30);
+            var Y = 470;
+            tegnPrikk(X, Y,  R, fHerman);
+             
+            // prikk 11
+            var X = 170 + parseInt(data.sit, 30);
+            var Y = 520;
+            tegnPrikk(X, Y,  R, fHerman);
 
-                var X = 170 + parseInt(data.talk, 30);
-                var Y = 120;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
-                ctx.fillStyle = "#7851A9";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-            
-                var X = 170 + parseInt(data.intExt, 30);
-                var Y = 170;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#7851A9";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-
-                var X = 170 + parseInt(data.tid, 30);
-                var Y = 220;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#7851A9";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-
-                var X = 170 + parseInt(data.text, 30);
-                var Y = 270;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#7851A9";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
         });
 
 
-        // Tegner inn resultatet til Ümit:
-        fetch("https://bacit.info/hwr/20221108135305-18fe29840d3eb537806ddc78934b9c9b.json", {cache: 'no-cache'})
+        // Tegner inn resultatet til Trym: --------------------------------------------------------------------------
+        let trymData = "https://bacit.info/hwr/20221111103121-83849619335ac9c81cf266d02899120f.json";
+        fetch(trymData, {cache: 'no-cache'})
             .then(response => response.json())
             .then(data => {
 
-
-                var X = 170 + parseInt(data.bird, 30);
-                var Y = 20;
-                var R = 5;
+            // funksjon som tegner prikk:
+            const tegnPrikk = (X, Y,  R, fTrym) => {
                 ctx.beginPath();
                 ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "green";
+                ctx.fillStyle = `${fTrym}`; // Henter fargen til personen
                 ctx.fill();
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = "black";
                 ctx.stroke();
+            }
+            //radius på prikken:
+            var R = 5;
 
-                var X = 170 + parseInt(data.cora, 30);
-                var Y = 70;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "green";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
+            // prikk 1
+            var X = 170 + parseInt(data.bird, 30);
+            var Y = 20;
+            tegnPrikk(X, Y,  R, fTrym);
+             
+            // prikk 2
+            var X = 170 + parseInt(data.cora, 30);
+            var Y = 70;
+            tegnPrikk(X, Y,  R, fTrym);
+             
+            // prikk 3
+            var X = 170 + parseInt(data.story, 30);
+            var Y = 120;
+            tegnPrikk(X, Y,  R, fTrym);
+             
+            // prikk 4
+            var X = 170 + parseInt(data.talking, 30);
+            var Y = 170;
+            tegnPrikk(X, Y,  R, fTrym);
+             
+            // prikk 5
+            var X = 170 + parseInt(data.proc, 30);
+            var Y = 220;
+            tegnPrikk(X, Y,  R, fTrym);
+             
+            // prikk 6
+            var X = 170 + parseInt(data.tic, 30);
+            var Y = 270;
+            tegnPrikk(X, Y,  R, fTrym);
+             
+            // prikk 7
+            var X = 170 + parseInt(data.talk, 30);
+            var Y = 320;
+            tegnPrikk(X, Y,  R, fTrym);
+             
+            // prikk 8
+            var X = 170 + parseInt(data.intExt, 30);
+            var Y = 370;
+            tegnPrikk(X, Y,  R, fTrym);
+             
+            // prikk 9
+            var X = 170 + parseInt(data.tid, 30);
+            var Y = 420;
+            tegnPrikk(X, Y,  R, fTrym);
+             
+            // prikk 10
+            var X = 170 + parseInt(data.text, 30);
+            var Y = 470;
+            tegnPrikk(X, Y,  R, fTrym);
+             
+            // prikk 11
+            var X = 170 + parseInt(data.sit, 30);
+            var Y = 520;
+            tegnPrikk(X, Y,  R, fTrym);
 
-                var X = 170 + parseInt(data.talk, 30);
-                var Y = 120;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
-                ctx.fillStyle = "green";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-            
-                var X = 170 + parseInt(data.intExt, 30);
-                var Y = 170;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "green";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-
-                var X = 170 + parseInt(data.tid, 30);
-                var Y = 220;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "green";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-
-                var X = 170 + parseInt(data.text, 30);
-                var Y = 270;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "green";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
         });
 
 
-        // Tegner inn resultatet til Brage:
-        fetch("https://bacit.info/hwr/20221108143316-4aedd62599e0cace2cfed303eb5a9f03.json", {cache: 'no-cache'})
+        // Tegner inn resultatet til Ümit: --------------------------------------------------------------------------
+        let umitData = "https://bacit.info/hwr/20221111102549-1b06051196972a1de837933a4cd3d141.json";
+        fetch(umitData, {cache: 'no-cache'})
             .then(response => response.json())
             .then(data => {
 
-
-                var X = 173 + parseInt(data.bird, 30);
-                var Y = 20;
-                var R = 5;
+            // funksjon som tegner prikk:
+            const tegnPrikk = (X, Y,  R, fUmit) => {
                 ctx.beginPath();
                 ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#FFE800";
+                ctx.fillStyle = `${fUmit}`; // Henter fargen til personen
                 ctx.fill();
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = "black";
                 ctx.stroke();
+            }
+            //radius på prikken:
+            var R = 5;
 
-                var X = 173 + parseInt(data.cora, 30);
-                var Y = 70;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#FFE800";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
+            // prikk 1
+            var X = 170 + parseInt(data.bird, 30);
+            var Y = 20;
+            tegnPrikk(X, Y,  R, fUmit);
+             
+            // prikk 2
+            var X = 170 + parseInt(data.cora, 30);
+            var Y = 70;
+            tegnPrikk(X, Y,  R, fUmit);
+             
+            // prikk 3
+            var X = 170 + parseInt(data.story, 30);
+            var Y = 120;
+            tegnPrikk(X, Y,  R, fUmit);
+             
+            // prikk 4
+            var X = 170 + parseInt(data.talking, 30);
+            var Y = 170;
+            tegnPrikk(X, Y,  R, fUmit);
+             
+            // prikk 5
+            var X = 170 + parseInt(data.proc, 30);
+            var Y = 220;
+            tegnPrikk(X, Y,  R, fUmit);
+             
+            // prikk 6
+            var X = 170 + parseInt(data.tic, 30);
+            var Y = 270;
+            tegnPrikk(X, Y,  R, fUmit);
+             
+            // prikk 7
+            var X = 170 + parseInt(data.talk, 30);
+            var Y = 320;
+            tegnPrikk(X, Y,  R, fUmit);
+             
+            // prikk 8
+            var X = 170 + parseInt(data.intExt, 30);
+            var Y = 370;
+            tegnPrikk(X, Y,  R, fUmit);
+             
+            // prikk 9
+            var X = 170 + parseInt(data.tid, 30);
+            var Y = 420;
+            tegnPrikk(X, Y,  R, fUmit);
+             
+            // prikk 10
+            var X = 166 + parseInt(data.text, 30);
+            var Y = 470;
+            tegnPrikk(X, Y,  R, fUmit);
+             
+            // prikk 11
+            var X = 170 + parseInt(data.sit, 30);
+            var Y = 520;
+            tegnPrikk(X, Y,  R, fUmit);
 
-                var X = 170 + parseInt(data.talk, 30);
-                var Y = 120;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
-                ctx.fillStyle = "#FFE800";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-            
-                var X = 170 + parseInt(data.intExt, 30);
-                var Y = 170;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#FFE800";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-
-                var X = 170 + parseInt(data.tid, 30);
-                var Y = 220;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#FFE800";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-
-                var X = 170 + parseInt(data.text, 30);
-                var Y = 270;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#FFE800";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
         });
 
-        // Tegner inn resultatet til Vinh:
-        fetch("https://bacit.info/hwr/20221110121024-44d510f8442651d34e969c08b9bd56c4.json", {cache: 'no-cache'})
+
+        // Tegner inn resultatet til Brage: -------------------------------------------------------------------------
+        let brageData = "https://bacit.info/hwr/20221108143316-4aedd62599e0cace2cfed303eb5a9f03.json";
+        fetch(brageData, {cache: 'no-cache'})
             .then(response => response.json())
             .then(data => {
 
-
-                var X = 170 + parseInt(data.bird, 30);
-                var Y = 20;
-                var R = 5;
+            // funksjon som tegner prikk:
+            const tegnPrikk = (X, Y,  R, fBrage) => {
                 ctx.beginPath();
                 ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#FFA500";
+                ctx.fillStyle = `${fBrage}`; // Henter fargen til personen
                 ctx.fill();
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = "black";
                 ctx.stroke();
+            }
+            //radius på prikken:
+            var R = 5;
 
-                var X = 170 + parseInt(data.cora, 30);
-                var Y = 70;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#FFA500";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
+            // prikk 1
+            var X = 170 + parseInt(data.bird, 30);
+            var Y = 20;
+            tegnPrikk(X, Y,  R, fBrage);
+             
+            // prikk 2
+            var X = 170 + parseInt(data.cora, 30);
+            var Y = 70;
+            tegnPrikk(X, Y,  R, fBrage);
+             
+            // prikk 3
+            var X = 170 + parseInt(data.story, 30);
+            var Y = 120;
+            tegnPrikk(X, Y,  R, fBrage);
+             
+            // prikk 4
+            var X = 170 + parseInt(data.talking, 30);
+            var Y = 170;
+            tegnPrikk(X, Y,  R, fBrage);
+             
+            // prikk 5
+            var X = 170 + parseInt(data.proc, 30);
+            var Y = 220;
+            tegnPrikk(X, Y,  R, fBrage);
+             
+            // prikk 6
+            var X = 170 + parseInt(data.tic, 30);
+            var Y = 270;
+            tegnPrikk(X, Y,  R, fBrage);
+             
+            // prikk 7
+            var X = 170 + parseInt(data.talk, 30);
+            var Y = 320;
+            tegnPrikk(X, Y,  R, fBrage);
+             
+            // prikk 8
+            var X = 170 + parseInt(data.intExt, 30);
+            var Y = 370;
+            tegnPrikk(X, Y,  R, fBrage);
+             
+            // prikk 9
+            var X = 170 + parseInt(data.tid, 30);
+            var Y = 420;
+            tegnPrikk(X, Y,  R, fBrage);
+             
+            // prikk 10
+            var X = 170 + parseInt(data.text, 30);
+            var Y = 470;
+            tegnPrikk(X, Y,  R, fBrage);
+             
+            // prikk 11
+            var X = 170 + parseInt(data.sit, 30);
+            var Y = 520;
+            tegnPrikk(X, Y,  R, fBrage);
 
-                var X = 170 + parseInt(data.talk, 30);
-                var Y = 120;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
-                ctx.fillStyle = "#FFA500";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-            
-                var X = 170 + parseInt(data.intExt, 30);
-                var Y = 170;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#FFA500";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-
-                var X = 170 + parseInt(data.tid, 30);
-                var Y = 220;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#FFA500";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
-
-                var X = 170 + parseInt(data.text, 30);
-                var Y = 270;
-                var R = 5;
-                ctx.beginPath();
-                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = "#FFA500";
-                ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
         });
 
-        
+
+        // Tegner inn resultatet til Vinh: -------------------------------------------------------------------------
+        let vinhData = "https://bacit.info/hwr/20221110121024-44d510f8442651d34e969c08b9bd56c4.json";
+        fetch(vinhData, {cache: 'no-cache'})
+            .then(response => response.json())
+            .then(data => {
+
+            // funksjon som tegner prikk:
+            const tegnPrikk = (X, Y,  R, fVinh) => {
+                ctx.beginPath();
+                ctx.arc(X, Y, R, 0, 2*Math.PI, false);
+                ctx.fillStyle = `${fVinh}`; // Henter fargen til personen
+                ctx.fill();
+                ctx.lineWidth = 1;
+                ctx.strokeStyle = "black";
+                ctx.stroke();
+            }
+            //radius på prikken:
+            var R = 5;
+
+            // prikk 1
+            var X = 170 + parseInt(data.bird, 30);
+            var Y = 20;
+            tegnPrikk(X, Y,  R, fVinh);
+             
+            // prikk 2
+            var X = 170 + parseInt(data.cora, 30);
+            var Y = 70;
+            tegnPrikk(X, Y,  R, fVinh);
+             
+            // prikk 3
+            var X = 170 + parseInt(data.story, 30);
+            var Y = 120;
+            tegnPrikk(X, Y,  R, fVinh);
+             
+            // prikk 4
+            var X = 170 + parseInt(data.talking, 30);
+            var Y = 170;
+            tegnPrikk(X, Y,  R, fVinh);
+             
+            // prikk 5
+            var X = 170 + parseInt(data.proc, 30);
+            var Y = 220;
+            tegnPrikk(X, Y,  R, fVinh);
+             
+            // prikk 6
+            var X = 170 + parseInt(data.tic, 30);
+            var Y = 270;
+            tegnPrikk(X, Y,  R, fVinh);
+             
+            // prikk 7
+            var X = 170 + parseInt(data.talk, 30);
+            var Y = 320;
+            tegnPrikk(X, Y,  R, fVinh);
+             
+            // prikk 8
+            var X = 170 + parseInt(data.intExt, 30);
+            var Y = 370;
+            tegnPrikk(X, Y,  R, fVinh);
+             
+            // prikk 9
+            var X = 170 + parseInt(data.tid, 30);
+            var Y = 420;
+            tegnPrikk(X, Y,  R, fVinh);
+             
+            // prikk 10
+            var X = 170 + parseInt(data.text, 30);
+            var Y = 470;
+            tegnPrikk(X, Y,  R, fVinh);
+             
+            // prikk 11
+            var X = 170 + parseInt(data.sit, 30);
+            var Y = 520;
+            tegnPrikk(X, Y,  R, fVinh);
+
+        });
+
     </script>
 </body>
 </html>

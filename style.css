@@ -9,6 +9,7 @@ body{
 .nav h4{
     margin-top: 0;
     padding-top: 10px;
+    padding-bottom: 10px;
     text-align: center;
 }
 .navA{
@@ -21,14 +22,25 @@ body{
 }
 
 /* --------------------------------- How we roll--------------------------------- */
+section{
+    padding: 1em 0 !important;
+}
 #spmlDiv{
-    
-    max-width: 500px;
+    max-width: 715px;
     width: 100%;
     background: #fff;
     margin: 20px auto;
     padding: 30px;
     box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+#spmlDiv form section{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+}
+#spmlDiv form section :first-child {
+    direction: rtl;
 }
 #spmlDiv h4{
     font-size: 24px;
@@ -41,6 +53,7 @@ body{
 #spmlDiv button{
     width: 100%;
     padding: 8px 10px;
+    margin-top: 15px;
     font-size: 15px;
     border: 0;
     background: #f44336;
@@ -74,7 +87,11 @@ body#page2{
 }
 .results pre{
     font-family: "Comic Sans MS", "Comic Sans"; /* Veldig nødvendig AS requested by Trym */
+    background-color: white;
 }
+
+
+
 /* --------------------------------- Index --------------------------------- */
 *{
     margin: 0;
