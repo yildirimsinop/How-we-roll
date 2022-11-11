@@ -14,6 +14,8 @@
             width: 30%;
             text-align: center;
             min-width: 250px;
+            height: 310px;
+            margin-top: 120px;
         }
         #red{
             border-bottom: solid 5px #DB261D;
@@ -38,13 +40,16 @@
         #innhold2{
             display: flex;
             flex-direction: row;
-            gap: 20px;
+            justify-content: center;
+            gap: 30px;
             margin: auto;
             width: 90%;
             border-top: solid 1px lightgray;
             border-bottom: solid 1px lightgray;
             margin-top: 50px;
+            padding-top: 30px;
             padding-bottom: 30px;
+            margin-bottom: 80px;
         }
         h1{
             text-align: center;
@@ -73,7 +78,7 @@
             <p id="orange">Vinh Vu Ai Nguyen</p>
         </div>
 
-        <canvas id="formsResults" height="300" width="610"></canvas>
+        <canvas id="formsResults" height="550" width="610"></canvas>
     </div>
 
     <script>
@@ -86,17 +91,27 @@
         ctx.font = '14px serif';
         ctx.fillText('Early Bird', 105, 25)
         ctx.fillText('Work together', 83, 75)
-        ctx.fillText('Zoom meeting', 80, 125)
-        ctx.fillText('Introvert', 112, 175)
-        ctx.fillText('09-17 Hours', 90, 225)
-        ctx.fillText('Physical/digital meeting', 25, 275)
+        ctx.fillText('Tell me the backstory', 42, 125)
+        ctx.fillText('Need to talk it out', 55, 175)
+        ctx.fillText('Verbal processor', 69, 225)
+        ctx.fillText('Schedule a time to chat', 32, 275)
+        ctx.fillText('Zoom meeting', 80, 325)
+        ctx.fillText('Introvert', 112, 375)
+        ctx.fillText('09-17 Hours', 90, 425)
+        ctx.fillText('Physical/digital meeting', 25, 475)
+        ctx.fillText('Do everything at once', 38, 525)
         
         ctx.fillText('Night Owl', 480, 25)
         ctx.fillText('Work alone', 480, 75)
-        ctx.fillText('Physical meeting', 480, 125)
-        ctx.fillText('Extrovert', 480, 175)
-        ctx.fillText('I have no set schedule', 480, 225)
-        ctx.fillText('E-mail/texting', 480, 275)
+        ctx.fillText('Cut to the chase', 480, 125)
+        ctx.fillText('Need to move on', 480, 175)
+        ctx.fillText('Mental processor', 480, 225)
+        ctx.fillText('Mental processor', 480, 275)
+        ctx.fillText('Physical meeting', 480, 325)
+        ctx.fillText('Extrovert', 480, 375)
+        ctx.fillText('I have no set schedule', 480, 425)
+        ctx.fillText('E-mail/texting', 480, 475)
+        ctx.fillText('Spread out the work', 480, 525)
 
         // tegner linjene mellom teksten:
         ctx.beginPath();
@@ -122,6 +137,26 @@
         ctx.moveTo(170, 270);
         ctx.lineTo(470, 270);
         ctx.stroke();
+
+        ctx.moveTo(170, 320);
+        ctx.lineTo(470, 320);
+        ctx.stroke();
+
+        ctx.moveTo(170, 370);
+        ctx.lineTo(470, 370);
+        ctx.stroke();
+
+        ctx.moveTo(170, 420);
+        ctx.lineTo(470, 420);
+        ctx.stroke();
+
+        ctx.moveTo(170, 470);
+        ctx.lineTo(470, 470);
+        ctx.stroke();
+
+        ctx.moveTo(170, 520);
+        ctx.lineTo(470, 520);
+        ctx.stroke();
         ctx.stroke();
         
 
@@ -131,7 +166,7 @@
             .then(data => {
 
 
-                var X = 168 + parseInt(data.bird, 30);
+                var X = 170 + parseInt(data.bird, 30);
                 var Y = 20;
                 var R = 5;
                 ctx.beginPath();
@@ -142,7 +177,7 @@
                 ctx.strokeStyle = "black";
                 ctx.stroke();
 
-                var X = 172 + parseInt(data.cora, 30);
+                var X = 170 + parseInt(data.cora, 30);
                 var Y = 70;
                 var R = 5;
                 ctx.beginPath();
@@ -164,7 +199,7 @@
                 ctx.strokeStyle = "black";
                 ctx.stroke();
             
-                var X = 173 + parseInt(data.intExt, 30);
+                var X = 170 + parseInt(data.intExt, 30);
                 var Y = 170;
                 var R = 5;
                 ctx.beginPath();
@@ -248,7 +283,7 @@
                 ctx.strokeStyle = "black";
                 ctx.stroke();
 
-                var X = 172 + parseInt(data.tid, 30);
+                var X = 170 + parseInt(data.tid, 30);
                 var Y = 220;
                 var R = 5;
                 ctx.beginPath();
@@ -426,7 +461,7 @@
             .then(data => {
 
 
-                var X = 173 + parseInt(data.bird, 30);
+                var X = 170 + parseInt(data.bird, 30);
                 var Y = 20;
                 var R = 5;
                 ctx.beginPath();
@@ -437,7 +472,7 @@
                 ctx.strokeStyle = "black";
                 ctx.stroke();
 
-                var X = 173 + parseInt(data.cora, 30);
+                var X = 170 + parseInt(data.cora, 30);
                 var Y = 70;
                 var R = 5;
                 ctx.beginPath();

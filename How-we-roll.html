@@ -38,9 +38,9 @@
                 <label for="story">Cut to the chase</label>
             </section>
             <section>
-                <label for="talk">Need to talk it out</label>
-                <input type="range" name="talk" id="inpTalk" min="0" max="100" step="1" value="50">
-                <label for="talk">Need to move on</label>
+                <label for="talking">Need to talk it out</label>
+                <input type="range" name="talking" id="inpTalking" min="0" max="100" step="1" value="50">
+                <label for="talking">Need to move on</label>
             </section>
             <section>
                 <label for="proc">Verbal processor</label>
@@ -48,7 +48,7 @@
                 <label for="proc">Mental processor</label>
             </section>
             <section>
-                <label for="tic">schedule a time to chat</label>
+                <label for="tic">Schedule a time to chat</label>
                 <input type="range" name="tic" id="inpTic" min="0" max="100" step="1" value="50">
                 <label for="tic">Mental processor</label>
             </section>
@@ -73,9 +73,9 @@
                 <label for="text">E-mail/texting</label>
             </section>
             <section>
-                <label for="sit">Do everything in one sitting</label>
+                <label for="sit">Do everything at once</label>
                 <input type="range" name="sit" id="inpSit" min="0" max="100" step="1" value="50">
-                <label for="sit">spread out the work</label>
+                <label for="sit">Spread out the work</label>
             </section>
             <button type="submit">Lagre</button>
         </form>
@@ -92,10 +92,15 @@
         // ------------------------------------------- Referanser til HTML -------------------------------------------
         const inpBird = document.querySelector('#inpBird');
         const inpCora = document.querySelector('#inpCora');
+        const inpStory = document.querySelector('#inpStory');
+        const inpTalking = document.querySelector('#inpTalking');
+        const inpProc = document.querySelector('#inpProc');
+        const inpTic = document.querySelector('#inpTic');
         const inpTalk = document.querySelector('#inpTalk');
         const inpIntExt = document.querySelector('#inpIntExt');
         const inpTid = document.querySelector('#inpTid');
         const inpText = document.querySelector('#inpText');
+        const inpSit = document.querySelector('#inpSit');
         const results = document.querySelector('.results');
 
 
