@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <!-- Navigasjonsbar -->
     <body id="page2"></body>
     <div class="nav">
         <h4>How we roll - How-we-roll</h4>
@@ -19,6 +19,7 @@
         </div>
     </div>
 
+    <!-- Div med forms med alle spørsmålene -->
     <div id="spmlDiv">
         <form>
             <h4>Spørsmål:</h4>
@@ -80,16 +81,18 @@
             <button type="submit">Lagre</button>
         </form>
     </div>
+    <!-- Div hvor arrayet med resultatet fra spørsmålsarket blir presentert -->
     <div> 
         <div class="results">
             <h2>Form data:</h2>
-            <pre></pre>
+            <pre></pre> <!-- Her presenteres arrayet med resultater -->
         </div>
     </div>
 
 
     <script>
         // ------------------------------------------- Referanser til HTML -------------------------------------------
+        // Disse referansene brukes ikke i koden under, men kan evt brukes senere om man ønsker å utvide programmet
         const inpBird = document.querySelector('#inpBird');
         const inpCora = document.querySelector('#inpCora');
         const inpStory = document.querySelector('#inpStory');
@@ -129,15 +132,15 @@
         function handleSubmit(event) {
             event.preventDefault();
             const data = new FormData(event.target);
-            const formJSON = Object.fromEntries(data.entries());
-            const results = document.querySelector('.results pre');
-            postData('https://bacit.info/', formJSON)
+            const formJSON = Object.fromEntries(data.entries()); // knytter en variabel til objektene som blir laget i arrayet
+            const results = document.querySelector('.results pre'); // knytter en variabel til html-elementet hvor resultatet blir presentert
+            postData('https://bacit.info/', formJSON) // sender dataen til databasen "bacit.info"
             .then(data => {
                 results.innerText = JSON.stringify(data, null, 2);
             })
         }
-        const form = document.querySelector('form');
-        form.addEventListener('submit', handleSubmit);
+        const form = document.querySelector('form'); // knytter en variabel til html-elementet form
+        form.addEventListener('submit', handleSubmit); // kjører funksjonen "handleSubmit"
     </script>
 </body>
 

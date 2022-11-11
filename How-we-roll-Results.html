@@ -7,6 +7,7 @@
     <title>Results</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Lager boksen rundt brukerne, samt fargede understreker */
         #brukere{
             margin-top: 30px;
             border: solid 1px gray;
@@ -36,7 +37,7 @@
             border-bottom: solid 5px #FFA500;
         }
 
-        
+        /* Boksen rundt brukerboksen og canvas-elementet */
         #innhold2{
             display: flex;
             flex-direction: row;
@@ -58,6 +59,7 @@
     </style>
 </head>
 <body>
+    <!-- Navigasjonsbar -->
     <div class="nav">
         <h4>How we roll - Results</h4>
         <div class="navA">
@@ -68,6 +70,7 @@
     </div>
     <h1>Results</h1>
 
+    <!-- Div med alle brukerne -->
     <div id="innhold2">
         <div id="brukere">
             <p id="red">Eric Alexander Bettmo</p>
@@ -78,6 +81,7 @@
             <p id="orange">Vinh Vu Ai Nguyen</p>
         </div>
 
+        <!-- Canvas hvor resultatet blir tegnet opp med JS -->
         <canvas id="formsResults" height="550" width="630"></canvas>
     </div>
 
@@ -87,7 +91,8 @@
         let canvas = document.getElementById('formsResults');
         let ctx = canvas.getContext('2d');
 
-        // Tegner teksten:
+        // Tegner opp teksten:
+        // venstre side:
         ctx.font = '14px serif';
         ctx.fillText('Early Bird', 105, 25)
         ctx.fillText('Work together', 83, 75)
@@ -101,6 +106,7 @@
         ctx.fillText('Physical/digital meeting', 25, 475)
         ctx.fillText('Do everything at once', 38, 525)
         
+        // høyre side
         ctx.fillText('Night Owl', 480, 25)
         ctx.fillText('Work alone', 480, 75)
         ctx.fillText('Cut to the chase', 480, 125)
@@ -114,47 +120,47 @@
         ctx.fillText('Spread out the work', 480, 525)
 
         // Tegner linjene mellom teksten:
-        ctx.beginPath();
+        ctx.beginPath(); // Linje til spørsmål 1
         ctx.moveTo(170, 20);
         ctx.lineTo(470, 20);
 
-        ctx.moveTo(170, 70);
+        ctx.moveTo(170, 70); // Linje til spørsmål 2
         ctx.lineTo(470, 70);
         ctx.stroke();
 
-        ctx.moveTo(170, 120);
+        ctx.moveTo(170, 120); // Linje til spørsmål 3
         ctx.lineTo(470, 120);
         ctx.stroke();
         
-        ctx.moveTo(170, 170);
+        ctx.moveTo(170, 170); // Linje til spørsmål 4
         ctx.lineTo(470, 170);
         ctx.stroke();
 
-        ctx.moveTo(170, 220);
+        ctx.moveTo(170, 220); // Linje til spørsmål 5
         ctx.lineTo(470, 220);
         ctx.stroke();
 
-        ctx.moveTo(170, 270);
+        ctx.moveTo(170, 270); // Linje til spørsmål 6
         ctx.lineTo(470, 270);
         ctx.stroke();
 
-        ctx.moveTo(170, 320);
+        ctx.moveTo(170, 320); // Linje til spørsmål 7
         ctx.lineTo(470, 320);
         ctx.stroke();
 
-        ctx.moveTo(170, 370);
+        ctx.moveTo(170, 370); // Linje til spørsmål 8
         ctx.lineTo(470, 370);
         ctx.stroke();
 
-        ctx.moveTo(170, 420);
+        ctx.moveTo(170, 420); // Linje til spørsmål 9
         ctx.lineTo(470, 420);
         ctx.stroke();
 
-        ctx.moveTo(170, 470);
+        ctx.moveTo(170, 470); // Linje til spørsmål 10
         ctx.lineTo(470, 470);
         ctx.stroke();
 
-        ctx.moveTo(170, 520);
+        ctx.moveTo(170, 520); // Linje til spørsmål 11
         ctx.lineTo(470, 520);
         ctx.stroke();
         ctx.stroke(); // "Dobbel-stroker" for å få den nederste linjen til å gå fra grå til svart
@@ -179,7 +185,7 @@
             const tegnPrikk = (X, Y,  R, fEric) => {
                 ctx.beginPath();
                 ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = `${fEric}`;
+                ctx.fillStyle = `${fEric}`; // Henter fargen til personen
                 ctx.fill();
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = "black";
@@ -256,7 +262,7 @@
             const tegnPrikk = (X, Y,  R, fHerman) => {
                 ctx.beginPath();
                 ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = `${fHerman}`;
+                ctx.fillStyle = `${fHerman}`; // Henter fargen til personen
                 ctx.fill();
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = "black";
@@ -333,7 +339,7 @@
             const tegnPrikk = (X, Y,  R, fTrym) => {
                 ctx.beginPath();
                 ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = `${fTrym}`;
+                ctx.fillStyle = `${fTrym}`; // Henter fargen til personen
                 ctx.fill();
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = "black";
@@ -410,7 +416,7 @@
             const tegnPrikk = (X, Y,  R, fUmit) => {
                 ctx.beginPath();
                 ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = `${fUmit}`;
+                ctx.fillStyle = `${fUmit}`; // Henter fargen til personen
                 ctx.fill();
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = "black";
@@ -487,7 +493,7 @@
             const tegnPrikk = (X, Y,  R, fBrage) => {
                 ctx.beginPath();
                 ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = `${fBrage}`;
+                ctx.fillStyle = `${fBrage}`; // Henter fargen til personen
                 ctx.fill();
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = "black";
@@ -564,7 +570,7 @@
             const tegnPrikk = (X, Y,  R, fVinh) => {
                 ctx.beginPath();
                 ctx.arc(X, Y, R, 0, 2*Math.PI, false);
-                ctx.fillStyle = `${fVinh}`;
+                ctx.fillStyle = `${fVinh}`; // Henter fargen til personen
                 ctx.fill();
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = "black";
