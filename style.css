@@ -21,7 +21,7 @@ body{
     margin: auto;
 }
 
-/* --------------------------------- How we roll--------------------------------- */
+/* --------------------------------- Styling for How we roll HTML siden--------------------------------- */
 section{
     padding: 1em 0 !important;
 }
@@ -67,16 +67,6 @@ section{
 body#page2{
     background-color:#ccc;
 
-};
-
-/* --------------------------------- Results --------------------------------- */
-#innhold{
-    margin: auto;
-    width: 70%;
-    border-top: solid 1px lightgray;
-    border-bottom: solid 1px lightgray;
-    margin-top: 50px;
-    padding-bottom: 30px;
 }
 .results{
     width: 70%;
@@ -90,9 +80,16 @@ body#page2{
     background-color: white;
 }
 
-
-
-/* --------------------------------- Index --------------------------------- */
+/* --------------------------------- Styling for Results HTML Siden --------------------------------- */
+#innhold{
+    margin: auto;
+    width: 70%;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+    margin-top: 50px;
+    padding-bottom: 30px;
+}
+/* --------------------------------- Stling for Index HTML siden --------------------------------- */
 *{
     margin: 0;
     padding: 0;
