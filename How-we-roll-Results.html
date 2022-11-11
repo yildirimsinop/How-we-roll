@@ -78,7 +78,7 @@
             <p id="orange">Vinh Vu Ai Nguyen</p>
         </div>
 
-        <canvas id="formsResults" height="550" width="610"></canvas>
+        <canvas id="formsResults" height="550" width="630"></canvas>
     </div>
 
     <script>
@@ -87,7 +87,7 @@
         let canvas = document.getElementById('formsResults');
         let ctx = canvas.getContext('2d');
 
-        // tegner teksten:
+        // Tegner teksten:
         ctx.font = '14px serif';
         ctx.fillText('Early Bird', 105, 25)
         ctx.fillText('Work together', 83, 75)
@@ -106,14 +106,14 @@
         ctx.fillText('Cut to the chase', 480, 125)
         ctx.fillText('Need to move on', 480, 175)
         ctx.fillText('Mental processor', 480, 225)
-        ctx.fillText('Mental processor', 480, 275)
+        ctx.fillText('Interupt me when needed', 480, 275)
         ctx.fillText('Physical meeting', 480, 325)
         ctx.fillText('Extrovert', 480, 375)
         ctx.fillText('I have no set schedule', 480, 425)
         ctx.fillText('E-mail/texting', 480, 475)
         ctx.fillText('Spread out the work', 480, 525)
 
-        // tegner linjene mellom teksten:
+        // Tegner linjene mellom teksten:
         ctx.beginPath();
         ctx.moveTo(170, 20);
         ctx.lineTo(470, 20);
@@ -157,7 +157,8 @@
         ctx.moveTo(170, 520);
         ctx.lineTo(470, 520);
         ctx.stroke();
-        ctx.stroke();
+        ctx.stroke(); // "Dobbel-stroker" for å få den nederste linjen til å gå fra grå til svart
+
 
         // Definerer fargekodene til gruppemedlemmene:
         let fEric = "#DB261D";
@@ -166,13 +167,13 @@
         let fUmit = "#008000";
         let fBrage = "#FFE800";
         let fVinh = "#FFA500";
-
         
-        // Tegner inn resultatet til Eric:
+
+        // Tegner inn resultatet til Eric: -----------------------------------------------------------------------------
         let ericData = "https://bacit.info/hwr/20221107160501-375b7f0c31eac4d0365cbf7e2d13487a.json";
         fetch(ericData, {cache: 'no-cache'})
-        .then(response => response.json())
-        .then(data => {
+            .then(response => response.json())
+            .then(data => {
             
             // funksjon som tegner prikk:
             const tegnPrikk = (X, Y,  R, fEric) => {
@@ -253,8 +254,9 @@
 
         });
 
-        // Tegner inn resultatet til Herman:
-        let hermanData = "https://bacit.info/hwr/20221107155022-6b1f6fda0f408049e8135fb66e1c6501.json";
+
+        // Tegner inn resultatet til Herman: --------------------------------------------------------------------------
+        let hermanData = "https://bacit.info/hwr/20221111102915-fc7053921b25e2732926472d72ee7f01.json";
         fetch(hermanData, {cache: 'no-cache'})
             .then(response => response.json())
             .then(data => {
@@ -339,7 +341,7 @@
         });
 
 
-        // Tegner inn resultatet til Trym: 
+        // Tegner inn resultatet til Trym: --------------------------------------------------------------------------
         let trymData = "https://bacit.info/hwr/20221107160142-c66961433b1f161cfe373d2b922aa057.json";
         fetch(trymData, {cache: 'no-cache'})
             .then(response => response.json())
@@ -425,7 +427,7 @@
         });
 
 
-        // Tegner inn resultatet til Ümit:
+        // Tegner inn resultatet til Ümit: --------------------------------------------------------------------------
         let umitData = "https://bacit.info/hwr/20221108135305-18fe29840d3eb537806ddc78934b9c9b.json";
         fetch(umitData, {cache: 'no-cache'})
             .then(response => response.json())
@@ -511,7 +513,7 @@
         });
 
 
-        // Tegner inn resultatet til Brage:
+        // Tegner inn resultatet til Brage: -------------------------------------------------------------------------
         let brageData = "https://bacit.info/hwr/20221108143316-4aedd62599e0cace2cfed303eb5a9f03.json";
         fetch(brageData, {cache: 'no-cache'})
             .then(response => response.json())
@@ -596,7 +598,8 @@
 
         });
 
-        // Tegner inn resultatet til Vinh:
+
+        // Tegner inn resultatet til Vinh: -------------------------------------------------------------------------
         let vinhData = "https://bacit.info/hwr/20221110121024-44d510f8442651d34e969c08b9bd56c4.json";
         fetch(vinhData, {cache: 'no-cache'})
             .then(response => response.json())
@@ -681,7 +684,6 @@
 
         });
 
-        
     </script>
 </body>
 </html>
