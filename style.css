@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
 }
-/* ------------------------------ Nav ------------------------------ */
+/* ------------------------------ Nav for how we roll ------------------------------ */
 .nav{
     background-color: lightgray;
 }
@@ -10,7 +10,12 @@ body{
     margin-top: 0;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-size: 24px;
     text-align: center;
+    background-image: linear-gradient(to left, #e73a0e, #040405);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 .navA{
     display: flex;
@@ -19,6 +24,13 @@ body{
     padding-bottom: 25px;
     width: 70%;
     margin: auto;
+}
+.navA a{
+    text-decoration: none;
+    font-size: 18px;
+    color: #810b22;
+    border-bottom: 3px solid #810b22;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* --------------------------------- Styling for How we roll HTML siden--------------------------------- */
